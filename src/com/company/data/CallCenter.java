@@ -1,4 +1,4 @@
-package com.company.utils;
+package com.company.data;
 
 import com.company.data.Agent;
 import com.company.data.Client;

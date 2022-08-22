@@ -1,7 +1,7 @@
 package com.company;
 
 import com.company.data.Agent;
-import com.company.utils.CallCenter;
+import com.company.data.CallCenter;
 import com.company.data.Client;
 
 public class Main {
