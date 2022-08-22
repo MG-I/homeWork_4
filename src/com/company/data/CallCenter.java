@@ -6,6 +6,7 @@ import com.company.utils.CallCenterUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class CallCenter {
@@ -97,5 +98,30 @@ public class CallCenter {
 
     private void writeInConsole(String value) {
         System.out.println("[" + Thread.currentThread().getName() + "]" + " - " + value);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CallCenter that = (CallCenter) o;
+        return maxQueueSize == that.maxQueueSize && workingThread.equals(that.workingThread) && availableAgents.equals(that.availableAgents) && waitingClients.equals(that.waitingClients) && agents.equals(that.agents) && processedClients.equals(that.processedClients);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(workingThread, maxQueueSize, availableAgents, waitingClients, agents, processedClients);
+    }
+
+    @Override
+    public String toString() {
+        return "CallCenter{" +
+                "workingThread=" + workingThread +
+                ", maxQueueSize=" + maxQueueSize +
+                ", availableAgents=" + availableAgents +
+                ", waitingClients=" + waitingClients +
+                ", agents=" + agents +
+                ", processedClients=" + processedClients +
+                '}';
     }
 }
